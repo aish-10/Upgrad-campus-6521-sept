@@ -1,1 +1,46 @@
 
+public class Main {
+    public static void main(String[] args) {
+
+//Questions on Variables and Datatypes:
+
+// Question 1. What are the primitive data types in Java?
+1. byte
+2. short
+3. long
+4. float
+5. double
+6. char
+7. boolean
+8. int
+
+// Question 2. Declare and Initialize Variables:
+int num1= 1;
+double num2=1.5;
+System.out.println("num1= "+ num1);
+System.out.println("num2= "+ num2);
+
+// Question 3: Perform Arithmetic Operations:
+int a=30;
+int b=20;
+System.out.println("Add= "+ (a+b));
+System.out.println("Subtract= "+ (a-b));
+System.out.println("Multiply= "+ (a*b));
+System.out.println("Division= "+ (a/b));
+
+// Question 4: Concatenate Strings:
+String firstName="Aishwarya";
+String lastName="Ambwani";
+System.out.println(firstName+" "+lastName);
+
+// Question 5: Boolean Logic:
+boolean isSunny= true;
+boolean isWarm= false;
+if(isSunny && isWarm){
+System.out.println("Today is a good day for outing");
+} 
+else{
+System.out.println("Today is not a good day for outing");
+        }
+    }
+}
