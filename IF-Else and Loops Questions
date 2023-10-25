@@ -1,0 +1,109 @@
+import java.util.Scanner;
+public class loops_condition {
+    public static void main(String[] args) {
+
+        IF ELSE-IF ELSE QUESTIONS
+
+        Question 1 What is the purpose of the if-else statement in programming?
+        Answer: The if-else statement is used to make decisions in code. It allows you to
+        execute different blocks of code based on a specified condition.
+
+        Question 2 Write a Java program to check if a number is even or odd using an if-else statement.
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number");
+        int num = sc.nextInt();
+        if(num%2==0){
+            System.out.println(num+" is EVEN");
+        }
+        else{
+            System.out.println(num+" is ODD");
+        }
+
+        Question 3 Write a Java program to find the largest of three numbers using if-else.
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number");
+
+        int num1= sc.nextInt();
+        int num2= sc.nextInt();
+        int num3= sc.nextInt();
+
+        if(num1>num2 && num1>num3){
+            System.out.println(num1 + " IS GREATER");
+        } else if (num2>num1 && num2>num3) {
+            System.out.println(num2 + " IS GREATER");
+        }else {
+            System.out.println(num3 + " IS GREATER");
+        }
+
+        Question 4 Write a Java program to determine if a number is positive, negative, or zero using if-else.
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number");
+        int num = sc.nextInt();
+        if(num>=0){
+            System.out.println(num+ " is POSITIVE");
+        }
+        else{
+            System.out.println(num+ " is NEGATIVE");
+        }
+
+        Question 5  You are working on a sports team management system. You need to write a Java program that matches a player to a team based on their age. The rules for matching players to teams are as follows:
+        If a player is 8 years old and younger till 5 years, they are assigned to the "Young Kids" team.
+        If a player is between 9 and 12 years old (inclusive), they are assigned to the "Junior Team."
+        If a player is 13 years or older, they are assigned to the "Senior Team."
+
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a player's age?");
+        int age=sc.nextInt();
+
+        if(age<=8 && age>=5){
+            System.out.println("Player is assigned to the Young Kids team.");
+        } else if (age>=9 && age<=12) {
+            System.out.println("Player is assigned to the Junior Team.");
+        }else if (age>=13){
+            System.out.println("Player is assigned to the Senior Team.");
+        }else {
+            System.out.println("Invalid Age");
+        }
+
+        LOOPS QUESTIONS
+
+        while loops
+
+        Question no 1: Write a Java program that uses a while loop to count down from a given number to 1, and then print "Blastoff!" when it reaches 1.
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = input.nextInt();
+
+        while (n >= 1) {
+            System.out.println(n);
+            n--;
+        }
+        System.out.println("Blastoff!");
+
+        // Question no. 2: Write a Java program that uses a while loop to calculate the sum of the first 100 positive integers.
+        int sum=0;
+        int i=1;
+        while (i<=100){
+                sum=sum+i;
+                i++;
+        }
+        System.out.println(sum);
+
+        For Loops
+
+        QUestion 1: Write a Java program that uses a for loop to print the numbers from 1 to 10.
+        for(int i=1;i<=10;i++){
+            System.out.println(i);
+        }
+
+        Question 2: Write a Java program to calculate the sum of the first 10 natural numbers using a for loop.
+        int sum=0;
+        for(int i=1;i<=10;i++){
+            sum=sum+i;
+
+        }
+        System.out.println("The sum of the first 10 natural numbers is:" + sum);*/
+
+        
+    }
+    }
