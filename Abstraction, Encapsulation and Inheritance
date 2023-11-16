@@ -1,0 +1,569 @@
+Abstraction Questions
+
+Question 1: Person Information:
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student("John", 20);
+        Teacher teacher = new Teacher("Mr. Smith", 35);
+
+        student.displayDetails();
+        teacher.displayDetails();
+    }
+}
+abstract class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    abstract void displayDetails();
+}
+
+class Student extends Person {
+    Student(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    void displayDetails() {
+        System.out.println("Student: " + name + ", Age: " + age);
+    }
+}
+
+class Teacher extends Person {
+    Teacher(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    void displayDetails() {
+        System.out.println("Teacher: " + name + ", Age: " + age);
+    }
+}
+
+Question 2: Temperature Converter:
+
+public class Main {
+    public static void main(String[] args) {
+        CelsiusTemperature celsiusObj = new CelsiusTemperature();
+        System.out.println("Celsius to Fahrenheit: " + celsiusObj.convertToFahrenheit(25));
+
+        FahrenheitTemperature fahrenheitObj = new FahrenheitTemperature();
+        System.out.println("Fahrenheit to Celsius: " + fahrenheitObj.convertToCelsius(77));
+    }
+}
+
+        abstract class Temperature {
+            abstract double convertToFahrenheit(double celsius);
+            abstract double convertToCelsius(double fahrenheit);
+        }
+
+        class CelsiusTemperature extends Temperature {
+            @Override
+            double convertToFahrenheit(double celsius) {
+                return (celsius * 9 / 5) + 32;
+            }
+
+            @Override
+            double convertToCelsius(double fahrenheit) {
+                return (fahrenheit - 32) * 5 / 9;
+            }
+        }
+
+        class FahrenheitTemperature extends Temperature {
+            @Override
+            double convertToFahrenheit(double celsius) {
+                return celsius;
+            }
+
+            @Override
+            double convertToCelsius(double fahrenheit) {
+                return fahrenheit;
+            }
+        }
+
+Question 3: Basic Calculator:
+
+public class Main {
+    public static void main(String[] args) {
+        BasicCalculator calculator = new BasicCalculator();
+
+        System.out.println("Addition: " + calculator.add(5, 3));
+        System.out.println("Subtraction: " + calculator.subtract(8, 4));
+        System.out.println("Multiplication: " + calculator.multiply(6, 7));
+        System.out.println("Division: " + calculator.divide(9, 3));
+    }
+
+    }
+        abstract class Calculator {
+            abstract int add(int a, int b);
+            abstract int subtract(int a, int b);
+            abstract int multiply(int a, int b);
+            abstract int divide(int a, int b);
+        }
+
+        class BasicCalculator extends Calculator {
+            @Override
+            int add(int a, int b) {
+                return a + b;
+            }
+
+            @Override
+            int subtract(int a, int b) {
+                return a - b;
+            }
+
+            @Override
+            int multiply(int a, int b) {
+                return a * b;
+            }
+
+            @Override
+            int divide(int a, int b) {
+                if (b != 0) {
+                    return a / b;
+                } else {
+                    System.out.println("Cannot divide by zero.");
+                    return 0;
+                }
+            }
+        }
+
+Question: 4 Bank Transaction:
+
+public class Main {
+    public static void main(String[] args) {
+
+                BasicBankAccount account = new BasicBankAccount();
+
+                account.deposit(1000);
+                account.withdraw(500);
+            }
+        
+    }
+        abstract class BankTransaction {
+            abstract void deposit(double amount);
+            abstract void withdraw(double amount);
+        }
+
+        class BasicBankAccount extends BankTransaction {
+            double balance;
+
+            @Override
+            void deposit(double amount) {
+                balance += amount;
+                System.out.println("Deposit of " + amount + " completed. New balance: " + balance);
+            }
+
+            @Override
+            void withdraw(double amount) {
+                if (balance >= amount) {
+                    balance -= amount;
+                    System.out.println("Withdrawal of " + amount + " completed. New balance: " + balance);
+                } else {
+                    System.out.println("Insufficient funds");
+                }
+            }
+        }
+
+Question 5: Animal Sounds:
+public class Main {
+    public static void main(String[] args) {
+        
+                Dog myDog = new Dog();
+                Cat myCat = new Cat();
+
+                myDog.makeSound();
+                myCat.makeSound();
+            }
+    }
+
+        abstract class Animal {
+            abstract void makeSound();
+        }
+
+        class Dog extends Animal {
+            @Override
+            void makeSound() {
+                System.out.println("Dog barks");
+            }
+        }
+
+        class Cat extends Animal {
+            @Override
+            void makeSound() {
+                System.out.println("Cat meows");
+            }
+        }
+
+Encapsulation Questions
+
+Question 1: Student Information System:
+
+public class Main {
+    public static void main(String[] args) {
+
+                Student student = new Student();
+                student.setName("John");
+                student.setAge(20);
+
+                System.out.println("Student Name: " + student.getName());
+                System.out.println("Student Age: " + student.getAge());
+            }
+        }
+    
+        class Student {
+            private String name;
+            private int age;
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public int getAge() {
+                return age;
+            }
+
+            public void setAge(int age) {
+                this.age = age;
+            }
+        }
+
+Question: 2 Employee Salary System:
+
+public class Main {
+    public static void main(String[] args) {
+        Employee employee=new Employee();
+        employee.setName("Aishwarya");
+        employee.setSalary(50000.0);
+
+        System.out.println("Employee Name: " + employee.getName());
+        System.out.println("Employee Salary: " + employee.getSalary());
+
+            }
+        }
+class Employee{
+    private String name;
+    private double salary;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public double getSalary(){
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+}
+
+Question 3: Book Information System:
+
+public class Main {
+    public static void main(String[] args) {
+        Book book=new Book();
+        book.setTitle("JAVA PROGRAMMING");
+        book.setAuthor("John");
+
+        System.out.println("Book: " + book.getTitle());
+        System.out.println("Author: " + book.getAuthor());
+
+            }
+        }
+class Book{
+    private String title;
+    private String author;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getAuthor(){
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+}
+
+Question 4: Car Information System:
+
+public class Main {
+    public static void main(String[] args) {
+    Car car= new Car();
+    car.setModel("TATA PUNCH");
+    car.setYear(2023);
+
+    System.out.println("Car Model: " + car.getModel());
+        System.out.println("Year: " + car.getYear());
+            }
+        }
+class Car{
+    private String model;
+    private int year;
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+    public int getYear(){
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+}
+
+Question 5: Bank Account System:
+
+public class Main {
+    public static void main(String[] args) {
+        
+                BankAccount account = new BankAccount();
+                account.setAccountNumber("123456789");
+                account.setBalance(1000.0);
+
+                System.out.println("Account Number: " + account.getAccountNumber());
+                System.out.println("Account Balance: " + account.getBalance());
+            }
+        }
+
+        class BankAccount {
+            private String accountNumber;
+            private double balance;
+
+            public String getAccountNumber() {
+                return accountNumber;
+            }
+
+            public void setAccountNumber(String accountNumber) {
+                this.accountNumber = accountNumber;
+            }
+
+            public double getBalance() {
+                return balance;
+            }
+
+            public void setBalance(double balance) {
+                this.balance = balance;
+            }
+        }
+
+Inheritance Questions
+
+Question 1: Vehicle Inheritance:
+
+public class Main {
+    public static void main(String[] args) {
+Car myCar=new Car();
+    myCar.start();
+    myCar.Accelerate();
+    myCar.stop();
+
+    }
+}
+class Vehicle{
+    void start(){
+        System.out.println("Vehicle Starting");
+    }
+    void stop(){
+        System.out.println("Vehicle Stopping");
+    }
+}
+class Car extends Vehicle{
+    void Accelerate(){
+        System.out.println("Car Accelerate ");
+    }
+}
+
+Question:2 Animal Inheritance:
+
+public class Main {
+    public static void main(String[] args) {
+Dog myDog=new Dog();
+    myDog.eat();
+    myDog.bark();
+    myDog.sleep();
+   
+
+    }
+}
+class Animal {
+    void eat() {
+        System.out.println("Animal is Eating");
+    }
+
+    void sleep() {
+        System.out.println("Animal is Sleeping");
+    }
+}
+class Dog extends Animal {
+        void bark() {
+            System.out.println("Dog is Barking ");
+        }
+    }
+
+Question 3: Shape Inheritance:
+
+public class Main {
+    public static void main(String[] args) {
+        Circle myCircle = new Circle();
+        myCircle.draw();
+
+
+    }
+}
+class Shape {
+    void draw() {
+        System.out.println("Drawing a shape...");
+    }
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a circle...");
+    }
+}
+
+Question 4: Employee Inheritance:
+
+public class Main {
+    public static void main(String[] args) {
+Manager manager=new Manager("John", 20000.0);
+manager.displayDetails();
+
+
+    }
+}
+class Employee{
+    String name;
+    double salary;
+
+    Employee (String name, double salary){
+        this.name=name;
+        this.salary=salary;
+
+    }
+    void displayDetails(){
+        System.out.println("Name: "+ name+ "\n"+ "Salary: "+ salary);
+    }
+
+}
+class Manager extends Employee{
+    Manager(String name,double salary){
+        super(name, salary);
+    }
+}
+
+Question 5: Bank Account Inheritance:
+
+public class Main {
+    public static void main(String[] args) {
+        SavingsAccount savingsAccount = new SavingsAccount("123456789", 1000.0);
+        savingsAccount.displayAccountInfo();
+    }
+}
+class BankAccount {
+    String accountNumber;
+    double balance;
+
+    BankAccount(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    void displayAccountInfo() {
+        System.out.println("Account Number: " + accountNumber + ", Balance: " + balance);
+    }
+}
+
+class SavingsAccount extends BankAccount {
+    SavingsAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
+    }
+
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
