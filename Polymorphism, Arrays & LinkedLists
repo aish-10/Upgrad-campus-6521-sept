@@ -1,0 +1,221 @@
+Polymorphism Questions
+
+Question 1: MethodOverriding
+
+public class MethodOverriding {
+    public static void main(String[] args) {
+
+        Student s1 = new Student("Karan", 2);
+        System.out.println(s1.getDetails());
+        ResearchStudent s2 = new ResearchStudent("Lakshay", 3, "Software Engineering");
+        System.out.println(s2.getDetails());
+
+    }
+}
+class Student{
+    private final String name;
+    private int year;
+    protected static final int annualfees=10000;
+
+    public Student(String name, int year){
+        this.name=name;
+        this.year=year;
+    }
+    public String getDetails(){
+        return "Name : " + name + "\n"+"Fees : "+ this.computeFees() ;
+    }
+    public float computeFees(){
+        return Student.annualfees * this.year;
+    }
+}
+class ResearchStudent extends Student{
+
+    private String researchArea;
+    private static final int annualfees=10000;
+
+
+    public ResearchStudent(String name, int year, String researchArea){
+        super(name, year);
+        this.researchArea=researchArea;
+
+
+    }
+    public String getDetails(){
+        return super.getDetails()+ "\n"+"Research Area : " + this.researchArea;
+    }
+}
+
+Question 2: Employee Bonus Calculation:
+
+public class employeeBonusCalculation {
+    public static void main(String[]args){
+    Employee employee=new Employee("John", 20000.0);
+    Manager manager=new Manager("Laksh", 30000.0);
+    System.out.println("Employee Bonus: "+ employee.calculateBonus());
+        System.out.println("Manager Bonus: "+ manager.calculateBonus());
+    }
+}
+class Employee{
+    String name;
+    double salary;
+
+    Employee(String name,double salary){
+        this.name=name;
+        this.salary=salary;
+    }
+    double calculateBonus(){
+        return salary * 0.1; // 10% of salary
+    }
+
+}
+class Manager extends Employee{
+    Manager(String name,double salary){
+        super(name, salary);
+    }
+    double calculateBonus(){
+        return salary * 0.2; // 20% of salary
+    }
+}
+
+Question:3 Bank Transaction Polymorphism:
+
+public class BankTransactionPolymorphism {
+    public static void main(String []args){
+    BankTransaction transaction1= new Deposit();
+    BankTransaction transaction2= new Withdrawal();
+
+    transaction1.performTransaction();
+    transaction2.performTransaction();
+    }
+}
+abstract class BankTransaction{
+    abstract void performTransaction();
+}
+class Deposit extends BankTransaction{
+    void performTransaction(){
+        System.out.println("Performing deposit");
+    }
+}
+class Withdrawal extends BankTransaction{
+    void performTransaction(){
+        System.out.println("Performing Withdrawal");
+    }
+}
+
+Question 4: Sorting with Polymorphism:
+
+public class sortingWithPolymorphism {
+    public static void main(String[] args) {
+        Sortable bubbleSort = new BubbleSort();
+        Sortable quickSort = new QuickSort();
+
+        bubbleSort.sort();
+        quickSort.sort();
+    }
+}
+    interface Sortable {
+        void sort();
+    }
+
+    class BubbleSort implements Sortable {
+        @Override
+        public void sort() {
+            System.out.println("Performing Bubble Sort");
+        }
+    }
+
+    class QuickSort implements Sortable {
+        @Override
+        public void sort() {
+            System.out.println("Performing Quick Sort");
+        }
+    }
+
+Question 5: Media Player Polymorphism:
+
+public class MediaPlayerPolymorphism {
+    public static void main(String[] args) {
+        MediaPlayer audioPlayer = new AudioPlayer();
+        MediaPlayer videoPlayer = new VideoPlayer();
+
+        audioPlayer.play();
+        videoPlayer.play();
+    }
+
+}
+
+interface MediaPlayer {
+    void play();
+}
+
+class AudioPlayer implements MediaPlayer {
+    @Override
+    public void play() {
+        System.out.println("Playing audio");
+    }
+}
+
+class VideoPlayer implements MediaPlayer {
+    @Override
+    public void play() {
+        System.out.println("Playing video");
+    }
+}
+
+
+ArrayList Questions
+
+Question 1: ArrayList Basics:
+
+import java.util.ArrayList;
+
+public class ArrayListBasics {
+    public static void main(String[] args) {
+        ArrayList<String> fruits = new ArrayList<String>();
+
+        // Adding elements to the ArrayList
+
+        fruits.add("Apple");
+        fruits.add("Orange");
+        fruits.add("PineApple");
+        fruits.add("Banana");
+        printFruits(fruits);
+    }
+
+    public static void printFruits(ArrayList<String> fruits) {
+        // Accessing elements using for-each loop
+        for (String fruit : fruits){
+            System.out.println(fruit);
+        }
+    }
+}
+
+Question 2: ArrayList Operations:
+
+import java.util.ArrayList;
+
+public class ArrayListOperations {
+    public static void main(String[] args) {
+        ArrayList <Integer> numbers= new ArrayList<>();
+
+        // Adding an element
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+        numbers.add(40);
+
+        // Displaying elements
+        System.out.println("Original ArrayList: " + numbers);
+
+        // Removing an element
+        numbers.remove(0);
+
+        // Updating an element
+        numbers.set(1,25);
+
+        System.out.println("Modified ArrayList: " + numbers);
+    }
+}
+
+Question 3: 
+
