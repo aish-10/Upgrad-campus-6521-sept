@@ -217,5 +217,60 @@ public class ArrayListOperations {
     }
 }
 
-Question 3: 
+Question 3: Write a Java program to find the size of an ArrayList.
+
+import java.util.ArrayList;
+
+public class ArrayListSize {
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+
+        // Find the size
+        int size = numbers.size();
+        System.out.println("Size of the ArrayList: " + size);
+    }
+}
+
+Question 4: Write a Java program to check if an element exists in an ArrayList.
+
+import java.util.ArrayList;
+
+public class CheckElement {
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+
+        // Check if an element exists
+        int elementToCheck = 20;
+        if (numbers.contains(elementToCheck)) {
+            System.out.println(elementToCheck + " exists in the ArrayList.");
+        } else {
+            System.out.println(elementToCheck + " does not exist in the ArrayList.");
+        }
+    }
+}
+
+Question:5 Write a Java program to clear all elements from an ArrayList.
+
+import java.util.ArrayList;
+
+public class ClearArrayList {
+    public static void main(String[] args) {
+        ArrayList<Double> prices = new ArrayList<>();
+        prices.add(29.99);
+        prices.add(49.99);
+        prices.add(79.99);
+
+        // Clear all elements
+        prices.clear();
+
+        // Print the size after clearing
+        System.out.println("Size of the ArrayList after clearing: " + prices.size());
+    }
+}
 
